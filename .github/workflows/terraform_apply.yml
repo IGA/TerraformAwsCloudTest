@@ -35,12 +35,6 @@ jobs:
     - name: Terraform validation
       run: terraform validate
 
-    - name: Terraform taint
-      env:
-        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-      run: terraform taint -allow-missing aws_instance.terraform_ec2_example
-
     - name: Terraform apply
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
